@@ -15,22 +15,6 @@ let sellers = [
                 date: '15.03.2024'
             }
         ]
-    },
-    {
-        id: '2',
-        name: 'cryptoTrader',
-        rating: 4,
-        minAmount: 1000,
-        maxAmount: 100000,
-        avatar: 'default-avatar.png'
-    },
-    {
-        id: '3',
-        name: 'btcMaster',
-        rating: 5,
-        minAmount: 2000,
-        maxAmount: 200000,
-        avatar: 'default-avatar.png'
     }
 ];
 
@@ -245,4 +229,4 @@ document.addEventListener('DOMContentLoaded', () => {
     displayCard();
     displaySellerProfile();
     initAdminPanel();
-}); 
+});
