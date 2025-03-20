@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root {
     --bg-primary: #0a0e17;
     --bg-secondary: #121826;
@@ -31,19 +32,54 @@ body {
     border-bottom: 1px solid var(--border-color);
     position: fixed;
     width: 100%;
+=======
+/* Общие стили */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #2196F3;
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --border-color: #ddd;
+    --card-background: #fff;
+    --error-color: #f44336;
+    --success-color: #4CAF50;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Шапка */
+header {
+    background-color: var(--card-background);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    position: sticky;
+>>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
     top: 0;
     z-index: 100;
 }
 
+<<<<<<< HEAD
 .nav {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem;
+=======
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+>>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+<<<<<<< HEAD
 .nav-brand {
     font-size: 1.5rem;
     font-weight: 600;
@@ -70,6 +106,26 @@ body {
 .nav-link:hover {
     color: var(--text-primary);
     background: var(--bg-card);
+=======
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: var(--background-color);
+>>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
 }
 
 .nav-link svg {
@@ -78,6 +134,7 @@ body {
 }
 
 /* Основной контент */
+<<<<<<< HEAD
 .main {
     max-width: 1200px;
     margin: 80px auto 0;
@@ -105,22 +162,48 @@ body {
     margin-bottom: 1rem;
     cursor: pointer;
     transition: all 0.3s;
+=======
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Карточки продавцов */
+.seller-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+>>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
 }
 
 .seller-card:hover {
     transform: translateY(-2px);
+<<<<<<< HEAD
     box-shadow: var(--card-shadow);
+=======
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+>>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
 }
 
 .seller-info {
     display: flex;
     align-items: center;
     gap: 1rem;
+<<<<<<< HEAD
+=======
+    margin-bottom: 1rem;
+>>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
 }
 
 .seller-avatar {
     width: 48px;
     height: 48px;
+<<<<<<< HEAD
     border-radius: 50%;
     background: var(--accent-gradient);
     display: flex;
@@ -133,10 +216,36 @@ body {
 .seller-name {
     font-weight: 600;
     margin-bottom: 0.25rem;
+=======
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.seller-info-main {
+    flex: 1;
+}
+
+.seller-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.seller-name {
+    margin: 0;
+    font-size: 1.2rem;
+>>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
 }
 
 .seller-rating {
     color: #ffd700;
+<<<<<<< HEAD
 }
 
 .seller-limits {
@@ -192,6 +301,78 @@ body {
     border-radius: 12px;
     padding: 1rem;
     margin-bottom: 1rem;
+=======
+    font-size: 1.2rem;
+}
+
+.seller-limits {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Формы */
+.admin-section {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-section h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="url"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #388e3c;
+}
+
+/* Отзывы */
+.review-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+>>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
 }
 
 .review-header {
@@ -201,6 +382,7 @@ body {
 }
 
 .review-author {
+<<<<<<< HEAD
     font-weight: 500;
 }
 
@@ -222,6 +404,55 @@ body {
     box-shadow: var(--card-shadow);
 }
 
+=======
+    font-weight: bold;
+}
+
+.review-date {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.review-text {
+    margin: 0.5rem 0;
+    line-height: 1.5;
+}
+
+/* Карточка */
+.card-section {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.card-actions {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.card-action-btn {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: color 0.3s;
+}
+
+.card-action-btn:hover {
+    color: var(--primary-color);
+}
+
+.card-action-btn.remove:hover {
+    color: var(--error-color);
+}
+
+/* Адаптивность */
+>>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
 @media (max-width: 768px) {
     .seller-info {
         flex-direction: column;
@@ -232,7 +463,11 @@ body {
         flex-direction: column;
     }
 
+<<<<<<< HEAD
     .exchange-form {
+=======
+    .admin-section {
+>>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
         padding: 1rem;
     }
 }
