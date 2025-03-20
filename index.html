@@ -1,0 +1,91 @@
+!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoExchange</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="nav-brand">CryptoExchange</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Главная
+                </a>
+            
+                <a href="sellers.html" class="nav-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Продавцы
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="about_section">
+            <h1>О нас</h1>
+            <p>Мы предоставляем безопасную и удобную платформу для обмена криптовалют.
+                Наша миссия - сделать процесс обмена криптовалют максимально простым и надежным.
+            </p>
+        </div>
+        <div class="card">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>Рыночная капитализация</h3>
+                    <div class="stat-value">$2.38T</div>
+                </div>
+                <div class="stat-item">
+                    <h3>Цена Bitcoin</h3>
+                    <div class="stat-value">$61,808</div>
+                </div>
+                <div class="stat-item">
+                    <h3>Общий объем</h3>
+                    <div class="stat-value">$89.7B</div>
+                </div>
+                <div class="stat-item">
+                    <h3>Объем торгов</h3>
+                    <div class="stat-value">$74.7B</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <style>
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .stat-item {
+        padding: 1.5rem;
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+    }
+
+    .stat-item h3 {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+        font-weight: 600;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    </style>
+</body>
+</html>

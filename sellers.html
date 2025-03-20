@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Продавцы - CryptoExchange</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sellers.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="nav-brand">CryptoExchange</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Главная
+                </a>
+            
+                <a href="sellers.html" class="nav-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Продавцы
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="card">
+            <div class="filters">
+                <button class="filter-button active">Все продавцы</button>
+                <button class="filter-button">Онлайн</button>
+                <button class="filter-button">Высокий рейтинг</button>
+                <select class="sort-select">
+                    <option>По рейтингу</option>
+                    <option>По количеству сделок</option>
+                    <option>По лимитам</option>
+                </select>
+            </div>
+
+            <div class="sellers-container">
+                <a href="seller.html?id=1" class="seller-item">
+                    <div class="seller-info">
+                        <div class="seller-avatar">W</div>
+                        <div class="seller-details">
+                            <span class="seller-name">whyhate</span>
+                            <div class="seller-stats">
+                                <span class="seller-rating">★★★★★</span>
+                                <span class="seller-trades">
+                                    <svg class="seller-trades-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    1,234 сделок
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="seller-limits">
+                        10,000 ₽ - 1,000,000 ₽
+                    </div>
+                </a>
+
+                <a href="seller.html?id=2" class="seller-item">
+                    <div class="seller-info">
+                        <div class="seller-avatar">C</div>
+                        <div class="seller-details">
+                            <span class="seller-name">btc_king</span>
+                            <div class="seller-stats">
+                                <span class="seller-rating">★★★★☆</span>
+                                <span class="seller-trades">
+                                    <svg class="seller-trades-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    1,234 сделок
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="seller-limits">
+                        5,000 ₽ - 500,000 ₽
+                    </div>
+                </a>
+
+                <a href="seller.html?id=3" class="seller-item">
+                    <div class="seller-info">
+                        <div class="seller-avatar">B</div>
+                        <div class="seller-details">
+                            <span class="seller-name">ethereum_king</span>
+                            <div class="seller-stats">
+                                <span class="seller-rating">★★★★★</span>
+                                <span class="seller-trades">
+                                    <svg class="seller-trades-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    1,234 сделок
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="seller-limits">
+                        15,000 ₽ - 2,000,000 ₽
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html> 

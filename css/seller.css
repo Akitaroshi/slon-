@@ -1,0 +1,103 @@
+.seller-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.seller-card {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: all 0.3s;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.seller-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-blue);
+}
+
+.seller-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--accent-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.seller-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.seller-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.seller-description p {
+    margin-bottom: 1rem;
+}
+
+.seller-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.seller-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.seller-rating {
+    color: #FFD700;
+    font-size: 0.9rem;
+}
+
+.seller-limits {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg-card);
+    border-radius: 8px;
+}
+
+.reviews-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.review-card {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.25rem;
+    border: 1px solid var(--border-color);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.review-author {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.review-text {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+} 

@@ -1,0 +1,120 @@
+.sellers-container {
+    display: grid;
+    gap: 1rem;
+}
+
+.seller-item {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.seller-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-blue);
+    background: var(--bg-card);
+}
+
+.seller-info {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.seller-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: var(--accent-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.seller-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.seller-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.seller-stats {
+    display: flex;
+    gap: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.seller-rating {
+    color: #FFD700;
+}
+
+.seller-trades {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.seller-trades-icon {
+    opacity: 0.7;
+}
+
+.seller-limits {
+    padding: 0.75rem 1.25rem;
+    background: var(--bg-card);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filter-button {
+    padding: 0.75rem 1.25rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-button:hover,
+.filter-button.active {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border-color: var(--accent-blue);
+}
+
+.sort-select {
+    padding: 0.75rem 1.25rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.sort-select:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+} 
