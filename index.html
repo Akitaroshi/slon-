@@ -30,29 +30,90 @@
     </header>
 
     <main class="main">
+        <div class="video_section">
+            <img src="z.gif" ></img>
+        </div>
         <div class="about_section">
             <h1>О нас</h1>
             <p>Мы предоставляем безопасную и удобную платформу для обмена криптовалют.
                 Наша миссия - сделать процесс обмена криптовалют максимально простым и надежным
             </p>
         </div>
-        <div class="card">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>Рыночная капитализация</h3>
-                    <div class="stat-value">$2.38T</div>
+        <div class="card glass-card">
+            <div class="market-overview">
+                <div class="market-stats">
+                    <div class="stat-item glass-effect">
+                        <h3>Всего на платформе</h3>
+                        <div class="stat-value">$14.8B</div>
+                        <div class="stat-change">
+                            <span class="positive">↑</span>
+                            <span class="stat-details">+$2.3M за 24ч</span>
+                        </div>
+                    </div>
+                    <div class="stat-item glass-effect">
+                        <h3>Успешных сделок</h3>
+                        <div class="stat-value">892,481</div>
+                        <div class="stat-change">
+                            <span class="positive">⚡</span>
+                            <span class="stat-details">+2,305 сегодня</span>
+                        </div>
+                    </div>
+                    <div class="stat-item glass-effect">
+                        <h3>Средний объем</h3>
+                        <div class="stat-value">$45,750</div>
+                        <div class="stat-change">
+                            <span class="positive">📈</span>
+                            <span class="stat-details">На сделку</span>
+                        </div>
+                    </div>
+                    <div class="stat-item glass-effect">
+                        <h3>Активных трейдеров</h3>
+                        <div class="stat-value">13,492</div>
+                        <div class="stat-change">
+                            <span class="positive">👥</span>
+                            <span class="stat-details">Онлайн</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <h3>Цена Bitcoin</h3>
-                    <div class="stat-value">$61,808</div>
+            </div>
+
+            <div class="charts-container">
+                <div class="chart-card glass-effect">
+                    <div class="chart-header">
+                        <div class="chart-title">
+                            <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="BTC" width="24">
+                            <h3>Bitcoin</h3>
+                            <span class="price">$61,808</span>
+                            <span class="change positive">+5.2%</span>
+                        </div>
+                        <div class="chart-controls">
+                            <button class="time-filter active">24ч</button>
+                            <button class="time-filter">7д</button>
+                            <button class="time-filter">30д</button>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="btcChart"></canvas>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <h3>Общий объем</h3>
-                    <div class="stat-value">$89.7B</div>
-                </div>
-                <div class="stat-item">
-                    <h3>Объем торгов</h3>
-                    <div class="stat-value">$74.7B</div>
+
+                <div class="chart-card glass-effect">
+                    <div class="chart-header">
+                        <div class="chart-title">
+                            <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="ETH" width="24">
+                            <h3>Ethereum</h3>
+                            <span class="price">$3,285</span>
+                            <span class="change positive">+3.8%</span>
+                        </div>
+                        <div class="chart-controls">
+                            <button class="time-filter active">24ч</button>
+                            <button class="time-filter">7д</button>
+                            <button class="time-filter">30д</button>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="ethChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
@@ -86,5 +147,7 @@
         -webkit-text-fill-color: transparent;
     }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

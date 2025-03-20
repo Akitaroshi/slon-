@@ -223,10 +223,209 @@ function updateReviewSellersList() {
     `;
 }
 
+// Функция для создания случайных данных для графика
+function generateChartData(points = 24, volatility = 1) {
+    const data = [];
+    let value = 100;
+    for (let i = 0; i < points; i++) {
+        value = value + (Math.random() - 0.5) * volatility * value * 0.05;
+        data.push(value);
+    }
+    return data;
+}
+
+function createTimeLabels(period = '24h') {
+    const labels = [];
+    const now = new Date();
+    let interval;
+    let count;
+
+    switch(period) {
+        case '24h':
+            interval = 3600000; // 1 hour
+            count = 24;
+            break;
+        case '7d':
+            interval = 86400000; // 1 day
+            count = 7;
+            break;
+        case '30d':
+            interval = 86400000; // 1 day
+            count = 30;
+            break;
+    }
+
+    for (let i = count - 1; i >= 0; i--) {
+        const time = new Date(now - interval * i);
+        labels.push(time.toLocaleTimeString('ru-RU', { 
+            hour: '2-digit', 
+            minute: '2-digit'
+        }));
+    }
+
+    return labels;
+}
+
+// Функция для инициализации графиков
+function initCharts() {
+    const btcCanvas = document.getElementById('btcChart');
+    const ethCanvas = document.getElementById('ethChart');
+
+    if (!btcCanvas || !ethCanvas) return;
+
+    // Функция для получения данных о криптовалюте
+    async function getCryptoData(id) {
+        try {
+            const response = await fetch(
+                `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=1&interval=hourly`
+            );
+            const data = await response.json();
+            return data.prices.map(price => ({
+                timestamp: price[0],
+                value: price[1]
+            }));
+        } catch (error) {
+            console.error(`Error fetching ${id} data:`, error);
+            return null;
+        }
+    }
+
+    // Функция для обновления цены в заголовке
+    function updatePriceDisplay(element, currentPrice, previousPrice) {
+        const priceElement = element.querySelector('.price');
+        const changeElement = element.querySelector('.change');
+        
+        const change = ((currentPrice - previousPrice) / previousPrice) * 100;
+        const changeText = change.toFixed(2);
+        
+        priceElement.textContent = `$${currentPrice.toLocaleString('en-US', { maximumFractionDigits: 2 })}`;
+        changeElement.textContent = `${change >= 0 ? '+' : ''}${changeText}%`;
+        changeElement.className = `change ${change >= 0 ? 'positive' : 'negative'}`;
+    }
+
+    // Функция для создания графика
+    function createChart(canvas, data, color) {
+        const ctx = canvas.getContext('2d');
+        const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, `${color}20`);
+        gradient.addColorStop(1, `${color}05`);
+
+        const labels = data.map(item => {
+            const date = new Date(item.timestamp);
+            return date.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+        });
+
+        const prices = data.map(item => item.value);
+
+        // Обновляем отображение текущей цены
+        const chartCard = canvas.closest('.chart-card');
+        if (chartCard) {
+            updatePriceDisplay(chartCard, prices[prices.length - 1], prices[0]);
+        }
+
+        return new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: prices,
+                    borderColor: color,
+                    borderWidth: 2,
+                    backgroundColor: gradient,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 0,
+                    pointHoverRadius: 4,
+                    pointHoverBackgroundColor: color,
+                    pointHoverBorderColor: '#fff',
+                    pointHoverBorderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    intersect: false,
+                    mode: 'index'
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        padding: 12,
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        callbacks: {
+                            label: function(context) {
+                                return `$${context.parsed.y.toLocaleString('en-US', { 
+                                    minimumFractionDigits: 2,
+                                    maximumFractionDigits: 2 
+                                })}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: 'rgba(255, 255, 255, 0.5)',
+                            font: { size: 10 }
+                        }
+                    },
+                    y: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: 'rgba(255, 255, 255, 0.5)',
+                            font: { size: 10 },
+                            callback: function(value) {
+                                return '$' + value.toLocaleString('en-US', {
+                                    minimumFractionDigits: 0,
+                                    maximumFractionDigits: 0
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // Инициализация графиков
+    async function initCharts() {
+        try {
+            const [btcData, ethData] = await Promise.all([
+                getCryptoData('bitcoin'),
+                getCryptoData('ethereum')
+            ]);
+
+            if (btcData && ethData) {
+                createChart(btcCanvas, btcData, '#F7931A');
+                createChart(ethCanvas, ethData, '#627EEA');
+            }
+        } catch (error) {
+            console.error('Error initializing charts:', error);
+        }
+    }
+
+    // Запускаем инициализацию
+    initCharts();
+
+    // Обновляем данные каждые 5 минут
+    setInterval(initCharts, 300000);
+}
+
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
     displaySellers();
     displayCard();
     displaySellerProfile();
     initAdminPanel();
+    initCharts();
 });
