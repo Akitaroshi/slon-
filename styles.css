@@ -18,60 +18,26 @@ body {
     color: var(--text-color);
 }
 
-/* Шапка */
 header {
     background-color: var(--card-background);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     position: sticky;
->>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
+
     top: 0;
     z-index: 100;
 }
 
-<<<<<<< HEAD
-.nav {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
-=======
+
 nav {
     max-width: 1200px;
     margin: 0 auto;
->>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-<<<<<<< HEAD
-.nav-brand {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    text-decoration: none;
-}
 
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-link {
-    color: var(--text-secondary);
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.nav-link:hover {
-    color: var(--text-primary);
-    background: var(--bg-card);
-=======
 .nav-links {
     display: flex;
     gap: 1rem;
@@ -90,7 +56,7 @@ nav {
 
 .nav-link:hover {
     background-color: var(--background-color);
->>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
+
 }
 
 .nav-link svg {
@@ -99,35 +65,7 @@ nav {
 }
 
 /* Основной контент */
-<<<<<<< HEAD
-.main {
-    max-width: 1200px;
-    margin: 80px auto 0;
-    padding: 2rem;
-}
 
-/* Карточки продавцов */
-.card {
-    background: var(--bg-card);
-    border-radius: 16px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid var(--border-color);
-    backdrop-filter: blur(10px);
-    box-shadow: var(--card-shadow);
-}
-
-.seller-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem;
-    background: var(--bg-card);
-    border-radius: 12px;
-    margin-bottom: 1rem;
-    cursor: pointer;
-    transition: all 0.3s;
-=======
 main {
     max-width: 1200px;
     margin: 2rem auto;
@@ -143,45 +81,29 @@ main {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
->>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
+
 }
 
 .seller-card:hover {
     transform: translateY(-2px);
-<<<<<<< HEAD
-    box-shadow: var(--card-shadow);
-=======
+
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
->>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
+
 }
 
 .seller-info {
     display: flex;
     align-items: center;
     gap: 1rem;
-<<<<<<< HEAD
-=======
+
     margin-bottom: 1rem;
->>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
+
 }
 
 .seller-avatar {
     width: 48px;
     height: 48px;
-<<<<<<< HEAD
-    border-radius: 50%;
-    background: var(--accent-gradient);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    color: var(--text-primary);
-}
 
-.seller-name {
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-=======
     background-color: var(--primary-color);
     color: white;
     border-radius: 50%;
@@ -205,68 +127,12 @@ main {
 .seller-name {
     margin: 0;
     font-size: 1.2rem;
->>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
+
 }
 
 .seller-rating {
     color: #ffd700;
-<<<<<<< HEAD
-}
 
-.seller-limits {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-/* Формы */
-.exchange-form {
-    display: grid;
-    gap: 1rem;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.input {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 0.75rem;
-    color: var(--text-primary);
-    font-size: 1rem;
-}
-
-.button {
-    background: var(--accent-gradient);
-    color: var(--text-primary);
-    border: none;
-    border-radius: 8px;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.button:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
-}
-
-/* Отзывы */
-.reviews-section {
-    margin-top: 2rem;
-}
-
-.review-card {
-    background: var(--bg-secondary);
-    border-radius: 12px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-=======
     font-size: 1.2rem;
 }
 
@@ -337,7 +203,7 @@ button:hover {
     padding: 1rem;
     margin-bottom: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
->>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
+
 }
 
 .review-header {
@@ -347,29 +213,6 @@ button:hover {
 }
 
 .review-author {
-<<<<<<< HEAD
-    font-weight: 500;
-}
-
-.review-rating {
-    color: #ffd700;
-}
-
-.review-text {
-    color: var(--text-secondary);
-
-}
-.about_section {
-    margin-bottom: 2rem;
-    padding: 1rem;
-    background: var(--bg-secondary);
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-    backdrop-filter: blur(10px);
-    box-shadow: var(--card-shadow);
-}
-
-=======
     font-weight: bold;
 }
 
@@ -417,7 +260,6 @@ button:hover {
 }
 
 /* Адаптивность */
->>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
 @media (max-width: 768px) {
     .seller-info {
         flex-direction: column;
@@ -428,11 +270,7 @@ button:hover {
         flex-direction: column;
     }
 
-<<<<<<< HEAD
-    .exchange-form {
-=======
     .admin-section {
->>>>>>> e27aeaa6405bf42ac4237f7886f7b978e051361c
         padding: 1rem;
     }
 }

@@ -1,3 +1,6 @@
+/* Импорт шрифтов */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
 :root {
     --bg-primary: #000000;
     --bg-secondary: #0D0D0D;
@@ -10,6 +13,9 @@
     --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     --success-color: #25B984;
     --error-color: #E84142;
+    --font-primary: 'Manrope', sans-serif;
+    --glow-purple: rgba(138, 43, 226, 0.2);
+    --glow-blue: rgba(64, 156, 255, 0.2);
 }
 
 * {
@@ -19,79 +25,294 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-primary);
     background: var(--bg-primary);
     color: var(--text-primary);
     min-height: 100vh;
     line-height: 1.5;
 }
 
-.header {
-    background: var(--bg-secondary);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border-color);
+body::before {
+    content: '';
     position: fixed;
-    width: 100%;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle at 50% 50%,
+        transparent 0%,
+        var(--bg-primary) 60%
+    );
+    z-index: -2;
+}
+
+body::after {
+    content: '';
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(
+            circle at 15% 5%,
+            var(--glow-purple) 0%,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 15%,
+            var(--glow-blue) 0%,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 75% 85%,
+            var(--glow-purple) 0%,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 25% 75%,
+            var(--glow-blue) 0%,
+            transparent 30%
+        );
+    opacity: 0.7;
+    z-index: -1;
+    animation: glowPulse 10s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+    0% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.02);
+    }
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+}
+
+/* Обновленные стили для шапки */
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    background: rgba(15, 15, 15, 0.3);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
     z-index: 100;
+    padding: 1rem;
 }
 
 .nav {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 1rem 0;
 }
 
 .nav-brand {
-    font-size: 1.5rem;
-    font-weight: 600;
+    padding: 0.5rem 1rem;
+    position: relative;
+}
+
+.nav-brand a {
+    font-size: 1.4rem;
+    font-weight: 700;
     color: var(--text-primary);
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.nav-brand::after {
+    content: '';
+    position: absolute;
+    bottom: -1.5rem;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
 }
 
 .nav-links {
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 0.5rem;
 }
 
 .nav-link {
-    color: var(--text-secondary);
-    text-decoration: none;
-    padding: 0.75rem 1.25rem;
-    border-radius: 12px;
-    transition: all 0.3s;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1rem;
+    padding: 0.9rem 1rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link i {
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+}
+
+.nav-link span {
     font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--accent-gradient);
+    border-radius: 0 4px 4px 0;
+    opacity: 0;
+    transition: all 0.3s ease;
 }
 
 .nav-link:hover {
+    background: rgba(255, 255, 255, 0.03);
     color: var(--text-primary);
-    background: var(--bg-card);
 }
 
-.nav-link svg {
-    width: 20px;
-    height: 20px;
-    opacity: 0.7;
-    transition: opacity 0.3s;
+.nav-link:hover i {
+    transform: scale(1.1);
+    color: var(--accent-blue);
 }
 
-.nav-link:hover svg {
+.nav-link.active {
+    background: rgba(36, 181, 222, 0.1);
+    color: var(--text-primary);
+}
+
+.nav-link.active::before {
     opacity: 1;
 }
 
+.nav-link.active i {
+    color: var(--accent-blue);
+}
+
+/* Добавляем эффект свечения при наведении */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at center,
+        rgba(36, 181, 222, 0.1) 0%,
+        transparent 70%
+    );
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+    pointer-events: none;
+}
+
+.nav-link:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Обновляем стили для мобильных устройств */
+@media (max-width: 768px) {
+    .header {
+        bottom: 0;
+        top: auto;
+        width: 100%;
+        height: 65px;
+        padding: 0.5rem;
+        background: rgba(15, 15, 15, 0.8);
+    }
+
+    .nav {
+        flex-direction: row;
+        padding: 0;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .nav-brand {
+        display: none;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+        padding: 0;
+    }
+
+    .nav-link {
+        flex-direction: column;
+        gap: 0.3rem;
+        padding: 0.5rem;
+        text-align: center;
+        border-radius: 8px;
+    }
+
+    .nav-link i {
+        font-size: 1.2rem;
+    }
+
+    .nav-link span {
+        font-size: 0.75rem;
+    }
+
+    .nav-link::before {
+        display: none;
+    }
+
+    .main {
+        margin-left: 0;
+        margin-bottom: 65px;
+    }
+}
+
+/* Добавляем стили для основного контента */
 .main {
-    max-width: 1200px;
-    margin: 80px auto 0;
+    margin-left: 250px;
     padding: 2rem;
+    min-height: 100vh;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .why-us-section h1 {
+        font-size: 2rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
 }
 
 .card {
@@ -170,32 +391,37 @@ body {
     color: var(--error-color);
 }
 
-.charts-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 1.5rem;
-}
-
 .chart-card {
     padding: 1.5rem;
-    border-radius: 12px;
-    min-height: 400px;
+    border-radius: 16px;
+    background: rgba(20, 20, 20, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+    font-family: var(--font-primary);
 }
 
 .chart-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .chart-title {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1rem;
+}
+
+.chart-title h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-weight: 600;
+    letter-spacing: -0.5px;
 }
 
 .chart-title img {
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
 }
 
@@ -203,50 +429,45 @@ body {
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 .chart-title .change {
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
     font-size: 0.9rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
+    font-weight: 500;
+    font-weight: 500;
+}
+
+.change.positive {
     background: rgba(37, 185, 132, 0.2);
+    color: var(--success-color);
 }
 
-.chart-title .change.negative {
+.change.negative {
     background: rgba(232, 65, 66, 0.2);
-}
-
-.chart-controls {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.time-filter {
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    padding: 0.4rem 0.8rem;
-    border-radius: 6px;
-    color: var(--text-secondary);
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.time-filter.active,
-.time-filter:hover {
-    background: var(--accent-blue);
-    color: white;
-}
-
-canvas {
-    width: 100% !important;
-    height: 100% !important;
-    margin-top: 1rem;
+    color: var(--error-color);
 }
 
 .chart-wrapper {
-    width: 100%;
     height: 300px;
+    width: 100%;
     position: relative;
+}
+
+.charts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .charts-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Добавляем новые стили */
@@ -261,11 +482,250 @@ canvas {
 .chart-controls button {
     font-size: 0.85rem;
     font-weight: 500;
-} 
+}
 
 .video_section{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
+
+/* Стили для секции "Почему мы" */
+.why-us-section {
+    padding: 2rem 0;
+}
+
+.why-us-section h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+    position: relative;
+}
+
+.why-us-section h1::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(
+        circle,
+        var(--glow-purple) 0%,
+        transparent 70%
+    );
+    opacity: 0.5;
+    z-index: -1;
+    filter: blur(20px);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: cardAppear 0.5s ease-out backwards;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--accent-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    background: rgba(30, 30, 30, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(138, 43, 226, 0.1);
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+.feature-content {
+    position: relative;
+    z-index: 1;
+}
+
+.feature-content i {
+    font-size: 2rem;
+    margin-bottom: 1.25rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+    position: relative;
+}
+
+.feature-content i::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(
+        circle,
+        var(--glow-purple) 0%,
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.feature-card:hover i::after {
+    opacity: 1;
+}
+
+.feature-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Обновленные стили для графиков */
+.market-overview {
+    margin-bottom: 3rem;
+}
+
+.stat-card {
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: cardAppear 0.5s ease-out backwards;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--accent-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    background: rgba(30, 30, 30, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(138, 43, 226, 0.1);
+}
+
+.stat-card:hover::before {
+    opacity: 1;
+}
+
+.stat-card i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+    position: relative;
+}
+
+.stat-card i::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(
+        circle,
+        var(--glow-purple) 0%,
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.stat-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* Добавим анимацию для иконок при наведении */
+.feature-card:hover i,
+.stat-card:hover i {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Добавляем анимацию появления для карточек */
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Добавляем задержку для последовательного появления карточек */
+.feature-card:nth-child(1) { animation-delay: 0.1s; }
+.feature-card:nth-child(2) { animation-delay: 0.2s; }
+.feature-card:nth-child(3) { animation-delay: 0.3s; }
+.feature-card:nth-child(4) { animation-delay: 0.4s; }
+
+.stat-card:nth-child(1) { animation-delay: 0.5s; }
+.stat-card:nth-child(2) { animation-delay: 0.6s; }
+.stat-card:nth-child(3) { animation-delay: 0.7s; }

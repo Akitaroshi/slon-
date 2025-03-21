@@ -4,26 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoExchange</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <header class="header">
         <nav class="nav">
-            <a href="index.html" class="nav-brand">CryptoExchange</a>
+            <div class="nav-brand">
+                <a href="index.html">CryptoExchange</a>
+            </div>
             <div class="nav-links">
-                <a href="index.html" class="nav-link">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Главная
+                <a href="index.html" class="nav-link active">
+                    <i class="ph ph-house-simple"></i>
+                    <span>Главная</span>
                 </a>
                 <a href="sellers.html" class="nav-link">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Продавцы
+                    <i class="ph ph-users"></i>
+                    <span>Продавцы</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="ph ph-chart-line"></i>
+                    <span>Курсы</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="ph ph-wallet"></i>
+                    <span>Кошелек</span>
                 </a>
             </div>
         </nav>
@@ -83,13 +90,8 @@
                         <div class="chart-title">
                             <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="BTC" width="24">
                             <h3>Bitcoin</h3>
-                            <span class="price">$61,808</span>
-                            <span class="change positive">+5.2%</span>
-                        </div>
-                        <div class="chart-controls">
-                            <button class="time-filter active">24ч</button>
-                            <button class="time-filter">7д</button>
-                            <button class="time-filter">30д</button>
+                            <span class="price">...</span>
+                            <span class="change">...</span>
                         </div>
                     </div>
                     <div class="chart-wrapper">
@@ -102,18 +104,48 @@
                         <div class="chart-title">
                             <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="ETH" width="24">
                             <h3>Ethereum</h3>
-                            <span class="price">$3,285</span>
-                            <span class="change positive">+3.8%</span>
-                        </div>
-                        <div class="chart-controls">
-                            <button class="time-filter active">24ч</button>
-                            <button class="time-filter">7д</button>
-                            <button class="time-filter">30д</button>
+                            <span class="price">...</span>
+                            <span class="change">...</span>
                         </div>
                     </div>
                     <div class="chart-wrapper">
                         <canvas id="ethChart"></canvas>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="why-us-section">
+            <h1>Почему мы?</h1>
+            <div class="features-grid">
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Безопасность</h3>
+                    <p>Все транзакции защищены современными протоколами шифрования. Мы используем многоуровневую систему безопасности и холодное хранение криптовалют.</p>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Скорость</h3>
+                    <p>Мгновенные транзакции и автоматическая обработка обменов. Среднее время операции составляет менее 5 минут.</p>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">💎</div>
+                    <h3>Выгодный курс</h3>
+                    <p>Мы предлагаем лучшие курсы обмена благодаря прямым интеграциям с крупнейшими биржами и высокой ликвидности.</p>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Поддержка 24/7</h3>
+                    <p>Наша служба поддержки работает круглосуточно и готова помочь вам с любыми вопросами на русском и английском языках.</p>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">📊</div>
+                    <h3>Прозрачность</h3>
+                    <p>Никаких скрытых комиссий. Все условия обмена всегда открыты и понятны каждому пользователю.</p>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Анонимность</h3>
+                    <p>Мы не требуем верификацию для большинства операций и обеспечиваем полную конфиденциальность ваших данных.</p>
                 </div>
             </div>
         </div>

@@ -4,33 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Продавцы - CryptoExchange</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/sellers.css">
 </head>
 <body>
     <header class="header">
         <nav class="nav">
-            <a href="index.html" class="nav-brand">CryptoExchange</a>
+            <div class="nav-brand">
+                <a href="index.html">CryptoExchange</a>
+            </div>
             <div class="nav-links">
                 <a href="index.html" class="nav-link">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Главная
+                    <i class="ph ph-house-simple"></i>
+                    <span>Главная</span>
                 </a>
-            
-                <a href="sellers.html" class="nav-link">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Продавцы
+                <a href="sellers.html" class="nav-link active">
+                    <i class="ph ph-users"></i>
+                    <span>Продавцы</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="ph ph-chart-line"></i>
+                    <span>Курсы</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="ph ph-wallet"></i>
+                    <span>Кошелек</span>
                 </a>
             </div>
         </nav>
     </header>
 
     <main class="main">
+        <div class="market-overview">
+            <div class="charts-container">
+                <div class="chart-card glass-effect">
+                    <div class="chart-header">
+                        <div class="chart-title">
+                            <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="BTC" width="24">
+                            <h3>Bitcoin</h3>
+                            <span class="price">...</span>
+                            <span class="change">...</span>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="btcChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card glass-effect">
+                    <div class="chart-header">
+                        <div class="chart-title">
+                            <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="ETH" width="24">
+                            <h3>Ethereum</h3>
+                            <span class="price">...</span>
+                            <span class="change">...</span>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="ethChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="card">
             <div class="filters">
                 <button class="filter-button active">Все продавцы</button>
